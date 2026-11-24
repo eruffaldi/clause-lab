@@ -1,0 +1,24 @@
+{
+  "name": "clause-lab",
+  "version": "1.2.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "tsc -p .",
+    "build": "npm run typecheck && npm test",
+    "package": "esbuild scripts/bundle.ts --bundle --platform=node --format=esm --packages=external --outfile=scripts/.bundle.mjs --log-level=warning && node scripts/.bundle.mjs",
+    "analyze": "esbuild scripts/analyze-cli.ts --bundle --platform=node --format=esm --packages=external --define:__APP_VERSION__=\\\"$npm_package_version\\\" --outfile=scripts/.analyze.mjs --log-level=warning && node scripts/.analyze.mjs",
+    "dev": "npm run package && npx --yes http-server dist -p 3000",
+    "version:show": "node -p \"require('./package.json').version\"",
+    "example": "esbuild scripts/make-example.ts --bundle --platform=node --format=esm --packages=external --outfile=scripts/.example.mjs --log-level=warning && node scripts/.example.mjs && npm run analyze -- examples/example-standard.pdf examples/example-standard.clause-index.json"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "esbuild": "^0.28.2",
+    "pdf-lib": "^1.17.1",
+    "pdfjs-dist": "4.10.38",
+    "typescript": "^7.0.2",
+    "vitest": "^5.1.1"
+  }
+}

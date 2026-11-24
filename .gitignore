@@ -1,0 +1,8 @@
+node_modules
+dist
+scripts/.*.mjs
+# Third-party documents never enter the repository: only the synthetic example is allowed
+*.pdf
+*.clause-index.json
+!examples/example-standard.pdf
+!examples/example-standard.clause-index.json
