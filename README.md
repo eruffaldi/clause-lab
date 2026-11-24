@@ -36,6 +36,8 @@ The index JSON can be edited by hand (fix a title, adjust a rectangle) and loade
 
 No other documents belong in the repository: `.gitignore` excludes every other `*.pdf` and `*.clause-index.json`, and a test checks this.
 
+![Screenshot of the App](screenshot.png)
+
 ## Index format (excerpt)
 
 ```json
